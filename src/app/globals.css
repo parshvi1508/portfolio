@@ -20,6 +20,22 @@
   --lavender-white: #f0ebff;
 }
 
+[data-theme="light"] {
+  --bg: #f5f4ff;
+  --bg-elevated: #ffffff;
+  --bg-sunken: #ede9ff;
+  --text-primary: #0d0a1e;
+  --text-secondary: #3d3560;
+  --text-muted: #7b6fa0;
+  --border: #d4caff;
+  --accent: #7c4dff;
+  --accent2: #9c6bff;
+  --accent-muted: rgba(124,77,255,0.1);
+  --lavender-pink: #9b59b6;
+  --lavender-purple: #7c4dff;
+  --lavender-white: #0d0a1e;
+}
+
 html {
   scroll-behavior: smooth;
 }

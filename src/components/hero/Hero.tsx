@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { StatusPill } from '@/components/ui/StatusPill'
 import { LinkButton } from '@/components/ui/Button'
 import { META } from '@/lib/data'
 import { HeroAnimated, HeroItem } from './HeroAnimated'
@@ -11,7 +10,6 @@ export function Hero() {
       className="relative flex flex-col items-center text-center pt-20 pb-28 px-6 overflow-hidden"
       aria-labelledby="hero-heading"
     >
-      {/* Background radial glow */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
@@ -23,45 +21,44 @@ export function Hero() {
 
       <HeroAnimated>
         <HeroItem>
-          <StatusPill label="Available for Applied AI / FDE roles" />
-        </HeroItem>
-
-        {/* Centered photo */}
-        <HeroItem>
           <div className="flex justify-center mt-2">
             <div className="relative">
               <div
                 className="absolute inset-0 rounded-full"
-                style={{ boxShadow: '0 0 40px rgba(157,123,255,0.5)' }}
+                style={{ boxShadow: '0 0 80px rgba(157,123,255,0.6)' }}
                 aria-hidden
               />
               <Image
                 src="/photo.jpeg"
                 alt="Parshvi Jain"
-                width={112}
-                height={112}
-                className="rounded-full border-2 relative z-10"
-                style={{ borderColor: 'var(--accent)' }}
+                width={200}
+                height={200}
+                className="rounded-full border-2 relative z-10 object-cover"
+                style={{ borderColor: 'var(--accent)', aspectRatio: '1 / 1' }}
                 priority
               />
             </div>
           </div>
         </HeroItem>
 
-        {/* Centered name block */}
         <HeroItem>
           <div className="select-none mt-1">
             <div
-              className="font-script text-4xl sm:text-5xl font-normal leading-tight"
-              style={{ color: 'var(--accent2)' }}
+              className="font-script text-4xl sm:text-5xl mb-2"
+              style={{
+                background: 'linear-gradient(120deg, #b197fc 0%, #f0c0f8 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
             >
               Hello, I&apos;m
             </div>
             <h1
               id="hero-heading"
-              className="text-6xl sm:text-7xl md:text-8xl font-semibold tracking-[-0.02em] leading-[1.0] mt-0"
+              className="text-6xl sm:text-7xl md:text-8xl font-semibold tracking-[-0.02em] leading-[1.0]"
             >
-              <span className="text-primary">Parshvi </span>
+              <span style={{ color: 'var(--text-primary)' }}>Parshvi </span>
               <span
                 style={{
                   background: 'linear-gradient(90deg, #9d7bff 0%, #c4a3ff 40%, #76ffb4 100%)',
@@ -81,23 +78,29 @@ export function Hero() {
         </HeroItem>
 
         <HeroItem>
-          <p className="text-lg sm:text-xl text-secondary max-w-lg mx-auto leading-snug mt-1">
-            Applied AI engineer. I ship ML systems with the explainability layer baked in.
+          <p className="text-base sm:text-lg max-w-lg mx-auto leading-relaxed mt-1" style={{ color: 'var(--text-secondary)' }}>
+            I got obsessed with the gap between &ldquo;the model said so&rdquo; and &ldquo;here&rsquo;s why&rdquo;
+            &mdash; and spent the last year building my way into it. IEEE-published, production-tested,
+            and the person who asks &ldquo;but can we verify that?&rdquo; in every design review.
           </p>
         </HeroItem>
 
         <HeroItem>
-          <p className="text-base text-muted max-w-md mx-auto leading-relaxed">
-            IEEE-published renewable energy forecasting (2.2% MAPE). XAI Forensics live below.
-            Backend and ML at startups in travel and healthcare AI.
-          </p>
+          <div className="flex flex-col items-center gap-1 mt-1">
+            <p className="font-mono text-xs" style={{ color: 'var(--text-muted)' }}>
+              Ghaziabad, India &middot; Open to remote / relocation
+            </p>
+            <p className="font-mono text-xs" style={{ color: 'var(--lavender-pink)' }}>
+              Open to Applied AI &middot; ML Engineer &middot; FDE roles
+            </p>
+          </div>
         </HeroItem>
 
         <HeroItem>
           <div className="flex flex-wrap items-center justify-center gap-3 mt-2">
             <LinkButton href="#work" variant="accent" size="lg">
               See the work
-              <span aria-hidden>↓</span>
+              <span aria-hidden> ↓</span>
             </LinkButton>
             <LinkButton
               href={META.calUrl}

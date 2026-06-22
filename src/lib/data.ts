@@ -22,7 +22,7 @@ export const EXPERIENCE = [
       'Sole backend engineer on a live travel platform: built a 20-module system with 50+ APIs powering payments, bookings, and AI-driven recommendations for real B2B clients.',
       'Architected FastAPI backend with PostgreSQL, Alembic, and Redis; designed JWT/RBAC auth, rate limiting, and multi-tenant white-label architecture for isolated B2B2C operations across travel verticals.',
       'Built the ML orchestration layer connecting model inference to booking and recommendation flows; integrated XML.Agency API for live flight and hotel data and Razorpay HMAC-SHA256 webhooks for payments.',
-      'Shipped continuously via Azure CI/CD with Docker and Gunicorn.',
+      'Entire backend designed, built, and taken to production by a second-year student. Solo.',
     ],
     stack: ['FastAPI', 'PostgreSQL', 'Redis', 'Docker', 'Azure'],
   },
@@ -59,6 +59,8 @@ export const EDUCATION = [
     detail: 'CGPA 8.48 / 10',
     location: 'Ghaziabad, India',
     prestige: false,
+    coursework: ['Data Structures & Algorithms', 'OOP & Design Patterns', 'Database Systems', 'Computer Networks', 'Operating Systems', 'Software Engineering'],
+    highlights: ['IEEE 2025 published researcher', 'ACM-W Vice Chair & ML research wing founder'],
   },
   {
     institution: 'Indian Institute of Technology, Madras (Online)',
@@ -67,6 +69,8 @@ export const EDUCATION = [
     detail: '',
     location: 'Chennai, India',
     prestige: true,
+    coursework: ['Statistics for Data Science', 'Machine Learning Foundations', 'Deep Learning', 'Business Data Management', 'Python for Data Science', 'Computational Thinking'],
+    highlights: ['IIT Madras credential alongside B.Tech CS', 'Industry-aligned data science curriculum'],
   },
 ] as const
 
@@ -79,9 +83,11 @@ export interface Project {
   github: string
   caseStudy?: string
   demo?: string
+  vercelDemo?: string
   paper?: string
   badge?: string
   hasLiveDemo?: boolean
+  metric?: string
 }
 
 export const PROJECTS: Project[] = [
@@ -95,18 +101,20 @@ export const PROJECTS: Project[] = [
     stack: ['LIME', 'DistilBERT', 'PyTorch', 'FastAPI', 'HuggingFace', 'Next.js', 'Docker'],
     github: 'https://github.com/parshvi1508/xai-forensics',
     caseStudy: '/work/xai-forensics',
+    vercelDemo: 'https://xai-forensics.vercel.app',
     hasLiveDemo: true,
+    metric: '500ms per-request LIME attribution',
   },
   {
     slug: 'renewable-forecasting',
     name: 'Pan-India Renewable Energy Forecasting',
     tagline:
-      '2.2% MAPE across 40+ Indian states. IEEE 2025. One of the first models to jointly forecast both energy supply and demand.',
+      'India&apos;s grid needs to know tomorrow&apos;s sun and wind together, not separately. This model does both - 2.2% error, IEEE 2025.',
+    metric: '2.2% MAPE | IEEE 2025',
     description:
       '4-layer LSTM (13K params) with 60-day sliding windows, dropout-based uncertainty quantification (95% prediction intervals). Jointly forecasts energy consumption and renewable generation across 40+ states. Outperforms ARIMA (4.8%), linear regression (6.1%), and exponential smoothing (5.3%). RMSE 0.15 GWh (p < 0.01). Automated ingestion of 96,360+ hourly records from AWS S3. Sub-1s CPU inference. UN SDG 7 and 13 aligned.',
     stack: ['TensorFlow', 'LSTM', 'scikit-learn', 'AWS S3', 'Python'],
     github: 'https://github.com/parshvi1508/renewable-forecasting',
-    paper: 'https://ieeexplore.ieee.org',
     caseStudy: '/work/renewable-forecasting',
     badge: 'IEEE 2025',
   },
@@ -120,38 +128,42 @@ export const PROJECTS: Project[] = [
     stack: ['FastAPI', 'Next.js', 'PostgreSQL', 'Docker', 'LLM'],
     github: 'https://github.com/parshvi1508/LUMEN_Backend',
     demo: 'https://lumencrm-frontend.vercel.app/dashboard',
-    caseStudy: '/work/trurism',
+    caseStudy: '/work/lumen-crm',
+    metric: '17 test suites | schema-validated LLM outputs',
   },
   {
     slug: 'data-analyst-agent',
     name: 'Data Analyst Agent API',
     tagline:
-      '7 file formats, one pipeline. Extract, analyze, format with Gemini 2.5 primary and automatic OpenRouter fallback.',
+      'Drop any file, get a structured analysis back. Gemini 2.5 primary with OpenRouter fallback - it keeps running even when the model goes down.',
     description:
       'Automated analysis API with a 3-stage Extract-Analyze-Format pipeline supporting 7 file formats. Semaphore-based concurrency (max 3 parallel requests), sandboxed Docker execution with UUID isolation per request. 4-attempt exponential backoff: Gemini 2.5-Flash primary with OpenRouter fallback so the system keeps serving even when the primary model endpoint goes down.',
     stack: ['FastAPI', 'Gemini 2.5', 'Docker', 'OpenRouter', 'Python'],
-    github: 'https://github.com/parshvi1508',
+    github: 'https://github.com/parshvi1508/data-analyst-agent',
+    metric: '7 formats | 3 parallel max | auto fallback',
   },
   {
     slug: 'elearning-ism',
     name: 'E-Learning Intelligent System',
     tagline:
-      'Detects anomalies, predicts dropout, and recommends what to study next. Three ML systems, one platform.',
+      'Three models watching one student: one flags if they&apos;re stuck, one predicts if they&apos;ll drop out, one recommends what to study next.',
     description:
       'Complete Intelligent System Model (ISM) for e-learning platforms. Anomaly detection uses Isolation Forest combined with Dempster-Shafer Theory for evidence combination. Dropout prediction runs on Random Forest. Hybrid recommendation engine combines content-based, collaborative, and rule-based approaches to surface personalized study paths.',
     stack: ['Python', 'Isolation Forest', 'Random Forest', 'scikit-learn', 'Dempster-Shafer'],
     github: 'https://github.com/parshvi1508/Anomalies_ML',
     demo: 'https://anomalies-ml-bgdn.vercel.app/',
+    metric: 'Isolation Forest + Dempster-Shafer fusion',
   },
   {
     slug: 'studyroom-syncora',
     name: 'Syncora: Collaborative Study Rooms',
     tagline:
-      'Realtime study rooms with server-authoritative session state and presence awareness. No client can desync the room.',
+      'Shared study rooms where everyone sees the same state. Built so the session never splits - the server owns the truth, not the browser.',
     description:
       'Collaborative study platform with realtime chat and server-authoritative session tracking. Presence awareness shows who is online and active. The server owns session truth so no client can create split-brain room state. Built for groups that need a shared, persistent study space without a cluttered tool.',
     stack: ['Next.js', 'WebSockets', 'PostgreSQL', 'TypeScript'],
     github: 'https://github.com/parshvi1508/studyroom',
+    metric: 'Server-authoritative | no client desync',
     demo: 'https://studyroom-syncora.vercel.app/',
   },
 ]
@@ -178,31 +190,52 @@ export const ACHIEVEMENTS = [
     type: 'recognition',
   },
   {
-    label: 'CodeChef Rankings',
-    detail: 'Starters 189: Rank 73. Starters 188: Rank 144. Starters 176: Rank 115.',
+    label: 'CodeChef Starters - Top 100 globally',
+    detail: 'Consistent top-100 finishes across three consecutive CodeChef Starters rounds (2024): Rank 73, 144, 115. Competing against 10,000+ participants per round.',
     type: 'competition',
+  },
+  {
+    label: 'Acadence SDP: Prototype Forge',
+    detail: 'Stage 1 of Acadence Research Track (Jan 2026). Built and deployed core modules into an end-to-end runnable multimodal pipeline from scratch in one month.',
+    type: 'recognition',
+  },
+  {
+    label: 'Acadence SDP: Advanced Bimodal Scaling',
+    detail: 'Stage 2 (May 2026). Extended the Stage 1 codebase to bimodal fusion (Text+Audio and Text+Video), ran ablation studies to tune modality weights, and benchmarked gains against Stage 1 baselines.',
+    type: 'recognition',
   },
 ] as const
 
 export const POSITIONS = [
   {
-    role: 'Vice Chair',
+    role: 'Vice Chair (prev. Event Coordinator)',
     org: 'ABES ACM-W',
-    period: 'April 2025 - April 2026',
+    period: 'January 2024 - April 2026',
     bullets: [
-      'Founded the chapter research wing and led its ML team; drove chapter to recognition as Most Active Chapter in ACM India Region 2.',
+      'Started as Event Coordinator (Jan 2024): ran Hour of Code sessions for 250+ school girls on cyberfeminism, digital confidence, and computing as a tool for change.',
+      'Promoted to Vice Chair (Apr 2025): founded the chapter research wing and led its ML team; drove recognition as Most Active Chapter in ACM India Region 2.',
       'First student chapter ever featured in the ACM-W Global Newsletter.',
-      'Represented the chapter as a panel member at the ACM India Region 2 Summit 2025, part of the only women-focused student chapter delegation.',
-      'Co-led Smart ABES Hackathon 2.0 and organized Blind Coding: Crown Edition with 100+ participants on Codeforces.',
-      'Taught and mentored 550+ school girls through Hour of Code and cyberfeminism sessions.',
+      'Panel member at ACM India Region 2 Summit 2025, representing the only women-focused student chapter delegation.',
+      'Co-led Smart ABES Hackathon 2.0; organized Blind Coding: Crown Edition with 100+ participants on Codeforces.',
+      'Mentored 550+ school girls across Hour of Code and cyberfeminism workshops.',
     ],
   },
   {
-    role: 'Event Coordinator',
-    org: 'ABES ACM-W',
-    period: 'January 2024 - April 2025',
+    role: 'Core Member',
+    org: 'Enigma Programming Club, ABESEC',
+    period: '2023 - 2024',
     bullets: [
-      'Conducted Hour of Code sessions for 250+ school girls, introducing concepts in cyberfeminism, digital confidence, and computing as a tool for change.',
+      'Built competitive programming skills through the club: algorithms, data structures, and contest strategy.',
+      'Co-organized Battle of Brains 2024, the club\'s flagship legacy event, handling logistics and problem-setting coordination.',
+    ],
+  },
+  {
+    role: 'Core Member',
+    org: 'Datalex, IIT Madras BS',
+    period: '2024 - Present',
+    bullets: [
+      'Core member of Datalex, the Data and Law club at Pichavaram (IIT Madras BS student body).',
+      'Responsible for external communication and end-to-end event organization for club activities at the intersection of data science and legal frameworks.',
     ],
   },
 ] as const
@@ -224,7 +257,7 @@ export const NOW_CONTENT = {
   shipping: {
     label: 'Shipping',
     content:
-      'Trurism backend: ML orchestration layer for travel personalization is live in production. Currently routing user preference signals through a lightweight ranker before the recommendation engine, cutting the candidate set early and reducing irrelevant results.',
+      'Building a personal XAI project: a tool that explains its own reasoning as it goes, not after the fact. Separately, the Trurism , cutting irrelevant recommendations before they reach the engine.',
   },
   reading: {
     label: 'Reading',
@@ -289,6 +322,11 @@ export const CASE_STUDIES = {
         title: 'Joint consumption and generation forecasting',
         content:
           'Prior work addresses only consumption or generation separately. Joint forecasting captures the coupling between demand and renewable availability, which is critical for dispatch decisions where net load (consumption minus generation) is what matters. This is the methodological gap the paper addresses.',
+      },
+      {
+        title: 'LSTM over modern time-series architectures',
+        content:
+          'PatchTST, iTransformer, and Mamba-based models achieve stronger benchmark numbers, but they are not the right fit here. The target deployment is India\'s state and central grid operators — government infrastructure running on constrained hardware with strict change-management processes. A 4-layer LSTM with 13K parameters runs sub-1s inference on CPU, requires no GPU, and integrates with existing TensorFlow toolchains already present in power-sector deployments. A heavy transformer architecture would improve MAPE marginally but create an adoption blocker: no procurement team approves a model that needs new hardware. The goal was a model grid operators would actually use, not the highest number on a leaderboard.',
       },
       {
         title: 'Hourly granularity over daily averages',

@@ -7,7 +7,7 @@ const PHRASES = [
   'Applied AI Engineer',
   'IEEE-published researcher',
   'XAI systems builder',
-  'Backend and ML engineer',
+  'shipping AI that explains itself',
 ]
 
 export function TypewriterTagline() {

@@ -67,7 +67,7 @@ export default function OGImage() {
             color: '#647199',
           }}
         >
-          <span>2.2% MAPE -- IEEE 2025</span>
+          <span>2.2% MAPE | IEEE 2025</span>
           <span>·</span>
           <span>50+ REST endpoints</span>
           <span>·</span>

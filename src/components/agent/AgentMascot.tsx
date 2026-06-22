@@ -298,7 +298,7 @@ export function AgentMascot() {
       <div className="flex flex-col items-center gap-2">
         {isBubbleVisible && (
           <div className="relative">
-            <div className="bg-elevated border border-border rounded-xl px-3 py-2 text-xs font-mono text-secondary max-w-[160px] text-center shadow-lg whitespace-nowrap">
+            <div className="bg-elevated border border-border rounded-xl px-3 py-2 text-xs font-mono text-secondary max-w-[220px] text-center shadow-lg break-words">
               {bubbleText}
             </div>
             <div

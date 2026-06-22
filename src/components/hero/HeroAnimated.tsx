@@ -16,15 +16,16 @@ const item = {
 
 interface HeroAnimatedProps {
   children: React.ReactNode
+  className?: string
 }
 
-export function HeroAnimated({ children }: HeroAnimatedProps) {
+export function HeroAnimated({ children, className = 'flex flex-col gap-5' }: HeroAnimatedProps) {
   return (
     <motion.div
       variants={container}
       initial="hidden"
       animate="show"
-      className="flex flex-col gap-5"
+      className={className}
     >
       {children}
     </motion.div>
