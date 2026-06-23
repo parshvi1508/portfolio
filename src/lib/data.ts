@@ -22,7 +22,6 @@ export const EXPERIENCE = [
       'Sole backend engineer on a live travel platform: built a 20-module system with 50+ APIs powering payments, bookings, and AI-driven recommendations for real B2B clients.',
       'Architected FastAPI backend with PostgreSQL, Alembic, and Redis; designed JWT/RBAC auth, rate limiting, and multi-tenant white-label architecture for isolated B2B2C operations across travel verticals.',
       'Built the ML orchestration layer connecting model inference to booking and recommendation flows; integrated XML.Agency API for live flight and hotel data and Razorpay HMAC-SHA256 webhooks for payments.',
-      'Entire backend designed, built, and taken to production by a second-year student. Solo.',
     ],
     stack: ['FastAPI', 'PostgreSQL', 'Redis', 'Docker', 'Azure'],
   },

@@ -80,7 +80,7 @@ export function Hero() {
         <HeroItem>
           <p className="text-base sm:text-lg max-w-lg mx-auto leading-relaxed mt-1" style={{ color: 'var(--text-secondary)' }}>
             I got obsessed with the gap between &ldquo;the model said so&rdquo; and &ldquo;here&rsquo;s why&rdquo;
-            &mdash; and spent the last year building my way into it. IEEE-published, production-tested,
+            and spent the last year building my way into it. IEEE-published, production-tested,
             and the person who asks &ldquo;but can we verify that?&rdquo; in every design review.
           </p>
         </HeroItem>
