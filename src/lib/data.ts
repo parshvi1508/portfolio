@@ -5,7 +5,7 @@ export const META = {
     'Applied AI engineer. IEEE-published renewable energy forecasting (2.2% MAPE). XAI Forensics live demo. Backend and ML engineer.',
   url: 'https://parshvijain.vercel.app',
   email: 'parshvijain1508@gmail.com',
-  linkedin: 'https://linkedin.com/in/parshvi1508',
+  linkedin: 'https://linkedin.com/in/jainparshvi',
   github: 'https://github.com/parshvi1508',
   calUrl: process.env.NEXT_PUBLIC_CAL_URL ?? 'https://cal.com/parshvi-jain',
   xaiApiUrl: process.env.NEXT_PUBLIC_XAI_API_URL ?? '',
@@ -326,7 +326,7 @@ export const CASE_STUDIES = {
       {
         title: 'LSTM over modern time-series architectures',
         content:
-          'PatchTST, iTransformer, and Mamba-based models achieve stronger benchmark numbers, but they are not the right fit here. The target deployment is India\'s state and central grid operators — government infrastructure running on constrained hardware with strict change-management processes. A 4-layer LSTM with 13K parameters runs sub-1s inference on CPU, requires no GPU, and integrates with existing TensorFlow toolchains already present in power-sector deployments. A heavy transformer architecture would improve MAPE marginally but create an adoption blocker: no procurement team approves a model that needs new hardware. The goal was a model grid operators would actually use, not the highest number on a leaderboard.',
+          'PatchTST, iTransformer, and Mamba-based models achieve stronger benchmark numbers, but they are not the right fit here. The target deployment is India\'s state and central grid operators -government infrastructure running on constrained hardware with strict change-management processes. A 4-layer LSTM with 13K parameters runs sub-1s inference on CPU, requires no GPU, and integrates with existing TensorFlow toolchains already present in power-sector deployments. A heavy transformer architecture would improve MAPE marginally but create an adoption blocker: no procurement team approves a model that needs new hardware. The goal was a model grid operators would actually use, not the highest number on a leaderboard.',
       },
       {
         title: 'Hourly granularity over daily averages',
@@ -406,7 +406,7 @@ export const CHATBOT_SYSTEM_PROMPT = `You are the portfolio assistant for Parshv
 ABOUT PARSHVI:
 Applied AI and ML engineer, based in Ghaziabad, India. Pursuing B.Tech CSE at ABES Engineering College (CGPA 8.48/10, 2023-2027) and BS in Data Science and Applications at IIT Madras Online (2024-2028). Open to Applied AI Engineer, Founding ML Engineer, and Forward Deployed Engineer roles globally.
 
-Contact: parshvijain1508@gmail.com | linkedin.com/in/parshvi1508 | github.com/parshvi1508
+Contact: parshvijain1508@gmail.com | linkedin.com/in/jainparshvi | github.com/parshvi1508
 Languages: English (professional working), Hindi (native)
 
 EXPERIENCE:
