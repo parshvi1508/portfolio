@@ -101,7 +101,6 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/parshvi1508/xai-forensics',
     caseStudy: '/work/xai-forensics',
     vercelDemo: 'https://xai-forensics.vercel.app',
-    hasLiveDemo: true,
     metric: '500ms per-request LIME attribution',
   },
   {
