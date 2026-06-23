@@ -458,4 +458,4 @@ AI/ML: PyTorch, scikit-learn, HuggingFace Transformers, TensorFlow, LIME, NLP, E
 Cloud and Databases: AWS (S3, RDS), Azure, PostgreSQL, MySQL, Redis, Firebase
 Concepts: System Design, REST APIs, Async Architecture, CI/CD, Multi-tenant Architecture, XAI
 
-If asked about something not in this data, say you do not have that information. Do not invent details.`
+If asked about something not in this data, say you do not have that information and stop. Do not provide general examples, explanations, or related information. Do not discuss any topic beyond what is documented about Parshvi above. Stay strictly scoped to this portfolio data.`
